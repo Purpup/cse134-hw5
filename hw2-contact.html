@@ -16,8 +16,27 @@
 
     <body>
         <header>
+            <button onclick="window.location.href='index.html';">Home Page</button>
+            <br>
             <h1>Contact</h1>
+            <label for = "dropdown">Directory:</label>
+                <select id = "dropdown" onchange = "window.location.href = this.value;">
+                    <option value = "hw2-welcome.html">Welcome</option>
+                    <option value = "hw2-work.html">Work</option>
+                    <option value = "hw2-about.html">About</option>
+                    <option value = "hw2-contact.html" selected>Contact</option>
+                </select>
         </header>
+
+        <main>
+            <section>
+                <h2>Contact Me</h2>
+                <p><b>Email: </b><a href = "mailto:sahsan@ucsd.edu" target = "_blank">sahsan@ucsd.edu</a></p>
+                <p><b>LinkedIn: </b><a href = "https://www.linkedin.com/in/samil-ahsan" target = "_blank">Samil Ahsan</a></p>
+                <p><b>GitHub: </b><a href = "https://www.github.com/Purpup" target = "_blank">Purpup</a></p>
+            </section>
+        </main>
+
     </body>
 
 </html>

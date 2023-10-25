@@ -16,8 +16,39 @@
 
     <body>
         <header>
-            <h1>Work</h1>
+            <button onclick="window.location.href='index.html';">Home Page</button>
+            <br>
+            <label for = "dropdown">Directory:</label>
+                <select id = "dropdown" onchange = "window.location.href = this.value;">
+                    <option value = "hw2-welcome.html">Welcome</option>
+                    <option value = "hw2-work.html" selected>Work</option>
+                    <option value = "hw2-about.html">About</option>
+                    <option value = "hw2-contact.html">Contact</option>
+                </select>
         </header>
+
+        <main>
+            <section>
+                <h2>Experience</h2>
+                <h3>ElectroRent</h3>
+                <p><i>IT Security Intern</i></p>
+                <ul>
+                    <li>Improved overall security awareness by <b>25%</b></li>
+                    <li>Bulletpoint 2</li>
+                    <li>Bulletpoint 3</li>
+                    <li>Bulletpoint 4</li>
+                </ul>
+                <h3>Zefr</h3>
+                <p><i>Software Engineer Intern</i></p>
+                <ul>
+                    <li>Used <strong>Python</strong> scripts and <strong>AI models</strong> to categorize YouTube channels and videos</li>
+                    <li>Bulletpoint 2</li>
+                    <li>Bulletpoint 3</li>
+                    <li>Bulletpoint 4</li>
+                </ul>
+            </section>
+        </main>
+
     </body>
 
 </html>
