@@ -39,6 +39,33 @@
             <main>
                 <h1>Hi, I'm Sam Ahsan.</h1>
                 <h2>An Aspiring <span style="color: blue; font-weight: bold;">Software Engineer</span></h2>
+                <canvas id="myCanvas" width="400" height="200"></canvas>
+                <script>
+                    const canvas = document.getElementById("myCanvas");
+                    const ctx = canvas.getContext("2d");
+                    ctx.fillStyle = "blue";
+                    ctx.fillRect(50, 50, 100, 50);
+                </script>
+                <template id="imageTemplate">
+                    <figure>
+                        <img src = "image.jpg" alt = "Image">
+                        <figcaption>Description of template image.</figcaption>
+                    </figure>
+                </template>
+                <section>
+                    <h3>Einstein's Famous Formula:</h3>
+                    <math xmlns="http://www.w3.org/1998/Math/MathML">
+                        <mrow>
+                            <mi>E</mi>
+                            <mo>=</mo>
+                            <mi>m</mi>
+                            <msup>
+                                <mi>c</mi>
+                                <mn>2</mn>
+                            </msup>
+                        </mrow>
+                    </math>
+                </section>
             </main>
         </div>
 

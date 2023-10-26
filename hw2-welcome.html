@@ -35,6 +35,10 @@
         <main>
             <section>
                 <h2>Who Am I?</h2>
+                <audio controls>
+                    <source src="videos/fun_quote.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
                 <h3>Software Engineer at Heart</h3>
                 <p>Since high school, I have been ...</p>
                 <h3>Machine Learning Enthusiast</h3>
@@ -46,6 +50,14 @@
             <section>
                 <h2>What Are My Goals?</h2>
                 <p>Lorum Ipsum ...</p>
+                <label for="Goals">Goals:</label>
+                <input type="text" id="Goals" list="goal-list">
+                <datalist id="goal-list">
+                    <option value="Machine Learning Expert">
+                    <option value="Create an Original Game Using Python">
+                    <option value="Learn Go and Ruby">
+                </datalist>
+
             </section>
         </main>
 
