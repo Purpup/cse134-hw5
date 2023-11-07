@@ -7,78 +7,70 @@
         <meta name = "keywords" content = "software engineer, web development, portfolio site"/>
         <meta name = "author" content = "Sam Ahsan"/>
         <meta name = "viewport" content = "width=device-width, initial-scale=1.0"/>
-        <link href = "styles/hw2.css" rel = "stylesheet"/>
-        <link rel="canonical" href="https://purpup-cse134b-hw2.netlify.app/">
+        <link href = "styles/style.css" rel = "stylesheet"/>
+        <link rel="canonical" href="https://purpup-cse134b-hw3.netlify.app/">
         <meta property="og:title" content="Sam Ahsan - Software Engineer Portfolio Site">
         <meta property="og:description" content="Explore Sam Ahsan's software engineering portfolio website and learn about the various projects.">
         <meta property="og:image" content="images/profile.png">
-        <meta property="og:url" content="https://purpup-cse134b-hw2.netlify.app/">
+        <meta property="og:url" content="https://purpup-cse134b-hw3.netlify.app/">
         <script>
             // script that shows load time
         </script>
-        <style>
-            .bordered-div {
-                border: 2px solid #000;
-                padding: 10px;
-            }
-        </style>
         <title>Sam Ahsan - Software Engineer Portfolio Site</title>
     </head>
 
     <body>
-        <div class = "bordered-div">
 
-            <header>
-                <button onclick="window.location.href='index.html';">Home Page</button>
-                <br>
-                <label for = "dropdown">Directory:</label>
-                <select id = "dropdown" onchange = "window.location.href = this.value;">
-                    <option value = "" selected>Select a Subpage</option>
-                    <option value = "welcome.html">Welcome</option>
-                    <option value = "work.html">Work</option>
-                    <option value = "about.html">About</option>
-                    <option value = "contact.html">Contact</option>
-                </select>
-            </header>
+        <nav>
+            <button onclick="window.location.href='index.html';">Home Page</button>
+            <br>
+            <label for = "dropdown">Directory:</label>
+            <select id = "dropdown" onchange = "window.location.href = this.value;">
+                <option value = "" selected>Select a Subpage</option>
+                <option value = "welcome.html">Welcome</option>
+                <option value = "work.html">Work</option>
+                <option value = "about.html">About</option>
+                <option value = "contact.html">Contact</option>
+            </select>
+        </nav>
 
-            <main>
-                <h1>Hi, I'm Sam Ahsan.</h1>
-                <h2>An Aspiring <span style="color: blue; font-weight: bold;">Software Engineer</span></h2>
-                <canvas id="myCanvas" width="400" height="200"></canvas>
-                <script>
-                    const canvas = document.getElementById("myCanvas");
-                    const ctx = canvas.getContext("2d");
-                    ctx.fillStyle = "blue";
-                    ctx.fillRect(50, 50, 100, 50);
-                </script>
-                <template id="imageTemplate">
-                    <figure>
-                        <img src = "image.jpg" alt = "Image">
-                        <figcaption>Description of template image.</figcaption>
-                    </figure>
-                </template>
-                <section>
-                    <h3>Einstein's Famous Formula:</h3>
-                    <math xmlns="http://www.w3.org/1998/Math/MathML">
-                        <mrow>
-                            <mi>E</mi>
-                            <mo>=</mo>
-                            <mi>m</mi>
-                            <msup>
-                                <mi>c</mi>
-                                <mn>2</mn>
-                            </msup>
-                        </mrow>
-                    </math>
-                </section>
-            </main>
-        </div>
+        <main>
+            <h1>Hi, I'm Sam Ahsan.</h1>
+            <h2>An Aspiring <span style="color: blue; font-weight: bold;">Software Engineer</span></h2>
+            <!-- <canvas id="myCanvas" width="400" height="200"></canvas>
+            <script>
+                const canvas = document.getElementById("myCanvas");
+                const ctx = canvas.getContext("2d");
+                ctx.fillStyle = "blue";
+                ctx.fillRect(50, 50, 100, 50);
+            </script> -->
+            <!-- <template id="imageTemplate">
+                <figure>
+                    <img src = "image.jpg" alt = "Image">
+                    <figcaption>Description of template image.</figcaption>
+                </figure>
+            </template> -->
+            <!-- <section>
+                <h3>Einstein's Famous Formula:</h3>
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <mrow>
+                        <mi>E</mi>
+                        <mo>=</mo>
+                        <mi>m</mi>
+                        <msup>
+                            <mi>c</mi>
+                            <mn>2</mn>
+                        </msup>
+                    </mrow>
+                </math>
+            </section> -->
+        </main>
 
         <footer>
             <nav>
                 <ul>
-                    <li><a href = "hw2-work.html">See My Projects</a></li>
-                    <li><a href = "hw2-contact.html">Contact Me</a></li>
+                    <li><a href = "work.html">See My Projects</a></li>
+                    <li><a href = "contact.html">Contact Me</a></li>
                 </ul>
             </nav>
             <p>&copy; Sam Ahsan's Portfolio Site</p>
