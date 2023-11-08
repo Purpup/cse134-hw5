@@ -67,7 +67,7 @@ nav ul li a::after {
     content: '';
     width: 0;
     height: 3px;
-    background-color: var(--primary-color, --primary-fallback);
+    background-color: var(--primary-color, --primary-fallback, rgb(78, 202, 255));
     position: absolute;
     left: 0;
     bottom: -5px;
@@ -98,7 +98,7 @@ nav ul li a:hover::after {
 #about {
     padding: 60px 10%;
     text-align: center;
-    background-color: var(--background-color, --background-fallback);
+    background-color: var(--background-color, --background-fallback, rgb(58, 58, 58));
     color: var(--font-color);
 }
 
@@ -106,7 +106,7 @@ nav ul li a:hover::after {
     font-size: 3.5rem;
     font-weight: 600;
     text-align: center;
-    color: var(--primary-color, --primary-fallback);
+    color: var(--primary-color, --primary-fallback, rgb(78, 202, 255));
 }
 #about p {
     padding-top: 10px;
@@ -171,19 +171,26 @@ ul.child-list {
     font-size: 1.5rem;
 }
 
+h3:has(+ul) {
+    font-weight: bolder;
+}
+h3:has(+p) {
+    font-weight: bolder;
+}
+
 /* -----PORTFOLIO------ */
 
 #portfolio {
     padding: 60px 10%;
     text-align: center;
-    background-color: var(--background-color, --background-fallback);
+    background-color: var(--background-color, --background-fallback, rgb(58, 58, 58));
     color: var(--font-color);
 }
 #portfolio h2 {
     font-size: 3.5rem;
     font-weight: 600;
     text-align: center;
-    color: var(--primary-color, --primary-fallback);
+    color: var(--primary-color, --primary-fallback, rgb(78, 202, 255));
 }
 
 .portfolio-container {
@@ -229,14 +236,14 @@ ul.child-list {
 #contact {
     padding: 60px 10%;
     text-align: center;
-    background-color: var(--background-color, --background-fallback);
+    background-color: var(--background-color, --background-fallback, rgb(58, 58, 58));
     color: var(--font-color);
 }
 #contact h2 {
     font-size: 3.5rem;
     font-weight: 600;
     text-align: center;
-    color: var(--primary-color, --primary-fallback);
+    color: var(--primary-color, --primary-fallback, rgb(78, 202, 255));
 }
 
 .contact {
@@ -277,7 +284,7 @@ ul.child-list {
     border-radius: 5px;
     font-size: 1rem;
     cursor: pointer;
-    background-color: var(--primary-color, --primary-fallback);
+    background-color: var(--primary-color, --primary-fallback, rgb(78, 202, 255));
     transition: .5s;
 }
 .submit-button:hover {
