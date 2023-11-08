@@ -14,9 +14,8 @@
 
 @font-face {
     font-family: 'Average';
-    src: url('Average-Regular.ttf') format(ttf);
+    src: url('Average-Regular.ttf') format('truetype');
     font-weight: normal;
-    font-size: normal;
 }
 
 body {
@@ -29,7 +28,6 @@ header {
     height: 100vh;
     background-image: url("../images/bg-1.jpg");
     background-size: cover;
-    background-position: relative;
     padding: 10px 10%;
     font-size: 1rem;
 }
