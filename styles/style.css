@@ -87,6 +87,7 @@ nav ul li a:hover::after {
 .hero h1 {
     font-size: 2em;
     margin-top: 20px;
+    padding: 10px;
 }
 
 .hero p {
@@ -290,6 +291,7 @@ h3:has(+p) {
 .submit-button:hover {
     background-color: #2aaef5;
     animation: bubble .4s ease-out;
+    transform: scale(1.1);
 }
 
 /* -----Media Queries----- */
