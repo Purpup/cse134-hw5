@@ -41,7 +41,7 @@
         <div id = "about">
             <div class = "about-container">
                 <div class = "grid-profile">
-                    <img src = "./images/profile.png" alt = "Profile Picture">
+                    <img src = "./images/profile.jpg" alt = "Profile Picture">
                 </div> 
                 <section class = "grid-header">
                     <h2>About Me</h2>
@@ -150,9 +150,26 @@
                 </section>
             </div>
         </div>
-        <section id = "contact">
+        <div id = "contact">
+            <section class = "contact-form">
+                <h2>Get in Touch</h2>
+                <form action = "#" method = "post">
+                    <label for = "name">Name: </label>
+                    <input type = "text" id = "name" name = "name" required>
 
-        </section>
+                    <label for = "email">Email: </label>
+                    <input type = "email" id = "email" name = "email" required>
+
+                    <label for = "phone">Phone: </label>
+                    <input type = "tel" id = "phone" name = "phone">
+
+                    <label for = "message">Message: </label>
+                    <textarea id = "message" name = "message" rows = "4" required></textarea>
+                    
+                    <button type = "submit" class = "submit-button">Submit</button>
+                </form>
+            </section>
+        </div>
     </main>    
 
 </body>

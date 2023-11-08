@@ -110,7 +110,7 @@ nav ul li a:hover::after {
 
 .about-container {
     display: grid;
-    grid-template-rows: 200px 600px;
+    grid-template-rows: 200px 550px;
     grid-template-columns: repeat(3, minmax(250px, 1fr));
     grid-gap: 10px;
     grid-template-areas:
@@ -184,7 +184,7 @@ ul.child-list {
 .portfolio-container {
     padding-top: 10px;
     display: grid;
-    grid-template-rows: 100px 600px;
+    grid-template-rows: 100px 650px;
     grid-template-columns: 1fr 1fr;
     grid-gap: 20px;
     grid-template-areas:
@@ -212,4 +212,63 @@ ul.child-list {
 }
 .projects h3 {
     font-size: 2.5rem;
+}
+
+/* -----Contact------ */
+#contact {
+    padding: 60px 10%;
+    text-align: center;
+    background-color: var(--background-color);
+    color: var(--font-color);
+}
+#contact h2 {
+    font-size: 3.5rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.contact {
+    padding: 40px 0;
+    margin: 0 10px;
+}
+.contact h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contact-form {
+    max-width: 75%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgb(73, 73, 73);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, .1);
+}
+
+.contact-form label {
+    display: block;
+}
+
+.contact-form input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid lightgrey;;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    resize: vertical;
+}
+
+.submit-button {
+    padding: 10px 20px;
+    border: none;
+    color: var(--font-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: var(--primary-color);
+    transition: .5s;
+}
+.submit-button:hover {
+    background-color: #2aaef5;
+    animation: bubble .4s ease-out;
 }
