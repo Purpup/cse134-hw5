@@ -19,19 +19,17 @@
 <body>
 
     <header>
-        <nav>
-            <ul class = "navigation">
-                <li class = "logo"><a href = "#"><img id = "logopic" src = "./images/logo.png" alt = "Logo"></a></li>
-                <input type = "checkbox" id = "checkbox">
-                <span class = "sidemenu">
-                    <li><a href = "#">Home</a></li>
-                    <li><a href = "#about">About</a></li>
-                    <li><a href = "#portfolio">Portfolio</a></li>
-                    <li><a href = "#contact">Contact</a></li>
-                    <label for = "checkbox" class = "closemenu"><i class = "fa fa-times"></i></label>
-                </span>
-                <label for = "checkbox" class = "openmenu"><i class = "fa fa-bars"></i></label>
-            </ul>
+        <nav class = "navigation">
+            <li class = "logo"><a href = "#"><img id = "logopic" src = "./images/logo.png" alt = "Logo"></a></li>
+            <input type = "checkbox" id = "checkbox">
+            <nav class = "sidemenu">
+                <a href = "#">Home</a>
+                <a href = "#about">About</a>
+                <a href = "#portfolio">Portfolio</a>
+                <a href = "#contact">Contact</a>
+                <label for = "checkbox" class = "closemenu"><i class = "fa fa-times"></i></label>
+            </nav>
+            <label for = "checkbox" class = "openmenu"><i class = "fa fa-bars"></i></label>
         </nav>
         <section class = "hero">
             <h1>Hi, I'm <span style = "color:var(--primary-color); font-size: 4.5rem">Sam Ahsan</span>.</h1>

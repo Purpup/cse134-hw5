@@ -56,11 +56,13 @@ picture {
 
 .sidemenu {
     display: flex;
+    list-style: none;
 }
-.sidemenu li{
+
+.sidemenu a {
+    margin-top: 20px;
+    padding-top: 10px;
     padding-left: 30px;
-}
-.sidemenu li a {
     display: inline-block;
     text-decoration: none;
     color: var(--font-color);
@@ -82,7 +84,7 @@ nav ul li a {
     position:relative;
 } */
 
-.sidemenu li a::after {
+.sidemenu a::after {
     content: '';
     width: 0;
     height: 3px;
@@ -90,11 +92,12 @@ nav ul li a {
     position: absolute;
     left: 0;
     bottom: -5px;
-    transition: .25s ease-in-out;
+    transition: .15s ease-in-out;
 }
 
-.sidemenu li a:hover::after {
-    width: 100%;
+.sidemenu a:hover::after {
+    width: 70%;
+    transform: translateX(30px);
 }
 
 .openmenu, .closemenu {
