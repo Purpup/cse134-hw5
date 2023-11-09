@@ -440,7 +440,7 @@ h3:has(+p) {
 
 @media screen and (min-width: 401px) and (max-width: 856px) {
     .about-container {
-        grid-template-rows: 70px 100px 400px 300px;
+        grid-template-rows: 70px 100px 425px 350px;
         grid-template-columns: 1fr;
         grid-gap: 10px;
         grid-template-areas:
@@ -450,7 +450,7 @@ h3:has(+p) {
         'education';
     }
     .portfolio-container {
-        grid-template-rows: 100px 500px 600px;
+        grid-template-rows: 100px 600px 625px;
         grid-template-columns: 1fr;
         grid-gap: 10px;
         grid-template-areas:
