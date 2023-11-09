@@ -8,6 +8,7 @@
     <meta name = "author" content = "Sam Ahsan"/>
     <meta name = "viewport" content = "width=device-width, initial-scale=1.0"/>
     <link href = "styles/style.css" rel = "stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="canonical" href="https://purpup-cse134b-hw3.netlify.app/">
     <meta property="og:title" content="Sam Ahsan - Software Engineer Portfolio Site">
     <meta property="og:description" content="Explore Sam Ahsan's software engineering portfolio website and learn about the various projects.">
@@ -18,18 +19,19 @@
 <body>
 
     <header>
-        <nav id = "navigation">
-            <img src = "./images/logo.png" class = "logo" alt = "Logo">
-            <ul>
-                <li><a href = "#">Home</a></li>
-                <li><a href = "#about">About</a></li>
-                <li><a href = "#portfolio">Portfolio</a></li>
-                <li><a href = "#contact">Contact</a></li>
+        <nav>
+            <ul class = "navigation">
+                <li class = "logo"><a href = "#"><img id = "logopic" src = "./images/logo.png" alt = "Logo"></a></li>
+                <input type = "checkbox" id = "checkbox">
+                <span class = "sidemenu">
+                    <li><a href = "#">Home</a></li>
+                    <li><a href = "#about">About</a></li>
+                    <li><a href = "#portfolio">Portfolio</a></li>
+                    <li><a href = "#contact">Contact</a></li>
+                    <label for = "checkbox" class = "closemenu"><i class = "fa fa-times"></i></label>
+                </span>
+                <label for = "checkbox" class = "openmenu"><i class = "fa fa-bars"></i></label>
             </ul>
-            <!-- need js to make nav bar stay while scrolling -->
-            <script>
-                
-            </script>
         </nav>
         <section class = "hero">
             <h1>Hi, I'm <span style = "color:var(--primary-color); font-size: 4.5rem">Sam Ahsan</span>.</h1>

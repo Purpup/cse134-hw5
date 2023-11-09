@@ -38,19 +38,38 @@ picture {
     max-width: 100%;
 }
 
-.logo {
+#logopic {
     width: 12dvw;
     max-width: 100px;
     height: auto;
 }
 
-#navigation {
+.navigation {
     display: flex;
+    width: 100%;
     align-items: center;
     justify-content: space-between;
+    list-style: none;
+    position: relative;
+    padding: 12px 20px;
 }
 
-nav ul li {
+.sidemenu {
+    display: flex;
+}
+.sidemenu li{
+    padding-left: 30px;
+}
+.sidemenu li a {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--font-color);
+    text-align: center;
+    transition: .15s ease-in-out;
+    position: relative;
+    font-size: 1.3rem;
+}
+/* nav ul li {
     display: inline-block;
     list-style: none;
     margin: 12px 20px;
@@ -61,9 +80,9 @@ nav ul li a {
     font-size: 18px;
     text-decoration: none;
     position:relative;
-}
+} */
 
-nav ul li a::after {
+.sidemenu li a::after {
     content: '';
     width: 0;
     height: 3px;
@@ -71,11 +90,31 @@ nav ul li a::after {
     position: absolute;
     left: 0;
     bottom: -5px;
-    transition: .5s;
+    transition: .25s ease-in-out;
 }
 
-nav ul li a:hover::after {
+.sidemenu li a:hover::after {
     width: 100%;
+}
+
+.openmenu, .closemenu {
+    display: none;
+    position: absolute;
+    color: var(--font-color);
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+.openmenu {
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+.closemenu {
+    top: 20px;
+    right: 20px;
+}
+#checkbox {
+    display: none;
 }
 
 .hero {
@@ -295,7 +334,58 @@ h3:has(+p) {
 }
 
 /* -----Media Queries----- */
-@media screen and (max-width: 400px) {
+
+@media screen and (max-width: 340px) {
+    .about-container {
+        grid-template-rows: 70px 50px 400px 550px;
+        grid-template-columns: 1fr;
+        grid-gap: 10px;
+        grid-template-areas:
+        'header'
+        'profile'
+        'skills'
+        'education';
+    }
+    .portfolio-container {
+        grid-template-rows: 100px 775px 950px;
+        grid-template-columns: 1fr;
+        grid-gap: 10px;
+        grid-template-areas:
+        'portfolio-header'
+        'experience'
+        'projects';
+    }
+    .sidemenu {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--primary-color, --primary-fallback);
+        z-index: 100;
+        width: 80%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        transition: all .2s ease-in-out;
+    }
+    .sidemenu li {
+        margin-top: 30px;
+    }
+    .sidemenu li a {
+        padding: 5px;
+    }
+    .openmenu, .closemenu {
+        display: block;
+    }
+    #checkbox:checked ~ .sidemenu {
+        right: 0;
+    }
+    :root {
+        font-size: 12px;
+    }
+}
+
+@media screen and (min-width: 341px) and (max-width: 400px) {
     .about-container {
         grid-template-rows: 70px 50px 400px 400px;
         grid-template-columns: 1fr;
@@ -314,6 +404,31 @@ h3:has(+p) {
         'portfolio-header'
         'experience'
         'projects';
+    }
+    .sidemenu {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--primary-color, --primary-fallback);
+        z-index: 100;
+        width: 80%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        transition: all .2s ease-in-out;
+    }
+    .sidemenu li {
+        margin-top: 30px;
+    }
+    .sidemenu li a {
+        padding: 5px;
+    }
+    .openmenu, .closemenu {
+        display: block;
+    }
+    #checkbox:checked ~ .sidemenu {
+        right: 0;
     }
     :root {
         font-size: 12px;
@@ -344,8 +459,33 @@ h3:has(+p) {
         width: 17dvw;
         justify-self: center;
     }
+    .sidemenu {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--primary-color, --primary-fallback);
+        z-index: 100;
+        width: 80%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        transition: all .2s ease-in-out;
+    }
+    .sidemenu li {
+        margin-top: 30px;
+    }
+    .sidemenu li a {
+        padding: 5px;
+    }
+    .openmenu, .closemenu {
+        display: block;
+    }
+    #checkbox:checked ~ .sidemenu {
+        right: 0;
+    }
     :root {
-        font-size: 12px;
+        font-size: 13px;
     }
 }
 
@@ -373,6 +513,6 @@ h3:has(+p) {
         width: 15dvw;
     }
     :root {
-        font-size: 14px;
+        font-size: 15px;
     }
 }
