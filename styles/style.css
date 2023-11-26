@@ -306,20 +306,38 @@ h3:has(+p) {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, .1);
 }
 
-.contact-form label {
-    display: block;
+form {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr;
 }
 
-.contact-form input, textarea {
+form-field {
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+}
+
+label.required::after {
+    content: ' *';
+    color: red;
+}
+
+.contact-form input, .contact-form textarea {
     width: 100%;
     padding: 10px;
     border: 1px solid lightgrey;;
     border-radius: 4px;
-    margin-bottom: 1rem;
+    margin-bottom: 10px;
     resize: vertical;
 }
 
 .submit-button {
+    width: 100%;
     padding: 10px 20px;
     border: none;
     color: var(--font-color);
@@ -332,7 +350,18 @@ h3:has(+p) {
 .submit-button:hover {
     background-color: #2aaef5;
     animation: bubble .4s ease-out;
-    transform: scale(1.1);
+    transform: scale(1.025);
+}
+
+.output {
+    margin-top: 20px;
+}
+.error {
+    color: #ff0000;
+}
+
+.info {
+    color: #008000;
 }
 
 /* -----Media Queries----- */
