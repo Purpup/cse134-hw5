@@ -153,20 +153,28 @@
         <div id = "contact">
             <section class = "contact-form">
                 <h2>Get in Touch</h2>
-                <form action = "#" method = "post">
-                    <label for = "name">Name: </label>
-                    <input type = "text" id = "name" name = "name" required>
+                <form action = "https://httpbin.org" method = "get">
+                    <form-field>
+                        <label for = "name">Name: </label>
+                        <input type = "text" id = "name" name = "name" required>
+                    </form-field>
 
-                    <label for = "email">Email: </label>
-                    <input type = "email" id = "email" name = "email" required>
+                    <form-field>
+                        <label for = "email">Email: </label>
+                        <input type = "email" id = "email" name = "email" required>
+                    </form-field>
 
-                    <label for = "phone">Phone: </label>
-                    <input type = "tel" id = "phone" name = "phone">
+                    <!-- <label for = "phone">Phone: </label>
+                    <input type = "tel" id = "phone" name = "phone"> -->
 
-                    <label for = "message">Message: </label>
-                    <textarea id = "message" name = "message" rows = "4" required></textarea>
+                    <form-field>
+                        <label for = "comments">Comments: </label>
+                        <textarea id = "comments" name = "comments" rows = "4" required></textarea>
+                    </form-field>
 
-                    <button type = "submit" class = "submit-button">Submit</button>
+                    <form-field>
+                        <button type = "submit" class = "submit-button">Submit</button>
+                    </form-field>
                 </form>
             </section>
         </div>
