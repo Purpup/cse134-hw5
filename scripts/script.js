@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
-    mask(nameInput, /[^a-zA-Z\s]/, nameError);
+    //mask(nameInput, /[^a-zA-Z\s]/, nameError);
 
     let contactForm = document.getElementById('contactForm');
     contactForm.addEventListener('submit', function(event) {
