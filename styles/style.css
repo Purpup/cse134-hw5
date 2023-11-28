@@ -11,7 +11,39 @@
     --background-color: color-mix(in HSL, black 80%, white);
     --background-fallback: rgb(58, 58, 58);
     --font-color: white;
+    --light-background: white;
+    --light-font-color: black;
+    --contact-form-background: rgb(72, 72, 72);
   }
+
+#warning {
+    width: 85%;
+    text-align: center;
+    font-size: .75rem;
+    padding: 20px;
+    position: fixed;
+    background-color: #ff0000;
+}
+#themeToggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5em;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
+#themeToggle::before {
+    content: '\1F319';
+}
+.light-mode body {
+    background: var(--light-background);
+    color: var(--light-font-color);
+}
+.light-mode #themeToggle::before {
+    content: '\1F31E';
+}
 
 @font-face {
     font-family: 'Average';
@@ -20,7 +52,7 @@
 }
 
 body {
-    background: black;
+    background: var(--background-color);
     color: var(--font-color);
     font-size: 1rem;
 }
@@ -121,6 +153,7 @@ nav ul li a {
 }
 
 .hero {
+    color: var(--font-color);
     margin-top: 20%;
     font-size: 2em;
     text-align: center;
@@ -140,8 +173,7 @@ nav ul li a {
 #about {
     padding: 60px 10%;
     text-align: center;
-    background-color: var(--background-color, --background-fallback, rgb(58, 58, 58));
-    color: var(--font-color);
+    
 }
 
 #about h2 {
@@ -225,8 +257,7 @@ h3:has(+p) {
 #portfolio {
     padding: 60px 10%;
     text-align: center;
-    background-color: var(--background-color, --background-fallback, rgb(58, 58, 58));
-    color: var(--font-color);
+    
 }
 #portfolio h2 {
     font-size: 3.5rem;
@@ -278,8 +309,7 @@ h3:has(+p) {
 #contact {
     padding: 60px 10%;
     text-align: center;
-    background-color: var(--background-color, --background-fallback, rgb(58, 58, 58));
-    color: var(--font-color);
+    
 }
 #contact h2 {
     font-size: 3.5rem;
@@ -292,16 +322,16 @@ h3:has(+p) {
     padding: 40px 0;
     margin: 0 10px;
 }
-.contact-form h2 {
+#contact-form h2 {
     text-align: center;
     margin-bottom: 20px;
 }
 
-.contact-form {
+#contact-form {
     max-width: 75%;
     margin: 0 auto;
     padding: 20px;
-    background-color: rgb(72, 72, 72);
+    background-color: var(--contact-form-background);
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, .1);
 }
@@ -316,7 +346,7 @@ form-field {
     margin-bottom: 20px;
 }
 
-.contact-form label {
+#contact-form label {
     display: block;
     margin-bottom: 5px;
     font-size: 1.2rem;
@@ -327,7 +357,7 @@ label.required::after {
     color: red;
 }
 
-.contact-form input, .contact-form textarea {
+#contact-form input, #contact-form textarea {
     width: 100%;
     padding: 10px;
     border: 1px solid lightgrey;;
@@ -379,6 +409,9 @@ output.error {
 }
 output.info {
     color: var(--primary-color);
+}
+#hidden_field, #hidden_field > * {
+    display: hidden;
 }
 
 /* .info {

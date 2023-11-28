@@ -1,4 +1,43 @@
 document.addEventListener('DOMContentLoaded', function () {
+
+    // theme switcher
+    let themeToggle = document.getElementById('themeToggle');
+    let htmlTheme = document.getElementById('htmlTheme');
+    let current = localStorage.getItem('theme');
+    let contact = document.getElementById('contact-form');
+
+    if(themeToggle) {
+        themeToggle.style.display = 'block';
+    }
+
+    function setTheme(theme) {
+        htmlTheme.classList.toggle('light-mode', theme === 'light');
+        localStorage.setItem('theme', theme);
+
+        if(theme === 'dark') {
+            contact.style.backgroundColor = 'rgb(72, 72, 72)';
+        }
+        else {
+            contact.style.backgroundColor = 'rgb(150, 150, 150)';
+        }
+    }
+
+    if(current) {
+        setTheme(current);
+    }
+    themeToggle.addEventListener('click', function() {
+        const isLightMode = htmlTheme.classList.contains('light-mode');
+        if(isLightMode) {
+            setTheme('dark');
+        }
+        else {
+            setTheme('light');
+        }
+    });
+
+
+
+    // contact form validation stuff
     let nameInput = document.getElementById('name');
     let nameError = document.getElementById('nameError');
     let emailInput = document.getElementById('email'); 
@@ -12,20 +51,16 @@ document.addEventListener('DOMContentLoaded', function () {
     let formErrors = [];
 
     function mask(element, regex, error) {
-        element.addEventListener('input', function() {
-            let input = element.value.trim();
-            let masked = input.replace(regex, '');
-            if(input !== masked) {
-                element.value = masked;
+        element.addEventListener('keydown', function(event) {
+            let key = event.key;
+            if(regex.test(key)) {
+                event.preventDefault();
                 error.textContent = 'Illegal character.';
                 error.style.opacity = '1';
-                setTimeout(function () {
+                addError(element, 'Illegal character.');
+                setTimeout(function() {
                     error.style.opacity = '0';
                 }, 2000);
-            }
-            else {
-                error.textContent = '';
-                error.style.opacity = '0';
             }
         });
     }
@@ -44,6 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
         else {
             nameInput.setCustomValidity('Please enter your name.');
             showError(nameError, nameInput.validationMessage);
+            addError(nameInput, nameInput.validationMessage);
         }
     });
 
@@ -60,6 +96,9 @@ document.addEventListener('DOMContentLoaded', function () {
             emailInput.setCustomValidity('Please enter a valid email address.');
             showError(emailError, emailInput.validationMessage);
         }
+        if(emailValue.length === 0) {
+            addError(emailInput, emailInput.validationMessage);
+        }
     });
 
     commentsInput.addEventListener('input', function() {
@@ -73,6 +112,7 @@ document.addEventListener('DOMContentLoaded', function () {
         else {
             commentsInput.setCustomValidity('Please enter some comments.');
             showError(commentsError, commentsInput.validationMessage);
+            addError(commentsInput, commentsInput.validationMessage);
         }
         if(remaining >= 0) {
             infoOutput.textContent = 'Characters remaining: ' + remaining;
@@ -82,12 +122,17 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             else {
                 infoOutput.style.color = 'red';
+                if(remaining === 0) {
+                    infoOutput.textContent = 'Character limit reached.';
+                    addError(commentsInput, 'Character limit reached.');
+                }
             }
         }
         else {
+            
             commentsInput.setCustomValidity('Character limit exceeded.');
             showError(commentsError, commentsInput.validationMessage);
-            commentsInput.readOnly = true;
+            addError(commentsInput, commentsInput.validationMessage);
         }
     });
 
@@ -96,37 +141,46 @@ document.addEventListener('DOMContentLoaded', function () {
         let emailValue = emailInput.value.trim();
         let commentsValue = commentsInput.value.trim();
         let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
         if(nameValue.length > 0 && emailPattern.test(emailValue) && commentsValue.length > 0) {
-            formErrors = [];
-            submitErrors();
             return true;
         }
         else {
-            submitErrors();
             return false;
         }
     }
 
     function submitErrors() {
-        if(formErrors.length > 0) {
-            let data = JSON.stringify(formErrors);
-            let hidden = document.createElement('input');
-
-            hidden.type = 'hidden';
-            hidden.name = 'form-errors';
-            hidden.value = data;
-
-            document.getElementsById('contactForm').appendChild(hidden);
+        let json = JSON.stringify(formErrors);
+        let form_errors = document.getElementById('form_errors');
+        if(!form_errors) {
+            form_errors = document.createElement('input');
+            form_errors.type = 'hidden';
+            form_errors.name = 'form_errors';
+            form_errors.id = 'form_errors';
+            document.getElementById('contactForm').appendChild(form_errors);
         }
+        form_errors.value = json;
+    }
+    
+    
+    
+
+    function showError(target, message) {
+        target.textContent = message;
     }
 
     function addError(target, message) {
         formErrors.push({ field: target.previousElementSibling.getAttribute('for'), message: message });
-    }    
-
-    function addError(target, message) {
-        formErrors.push({ field: target.previousElementSibling.getAttribute('for'), message: message });
+        console.log(JSON.stringify(formErrors));
     }
+
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        if(!validate()) {
+            event.preventDefault();
+        }
+        else {
+            submitErrors();
+        }
+    });
 
 });
