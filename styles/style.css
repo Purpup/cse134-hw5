@@ -336,18 +336,18 @@ label.required::after {
     resize: vertical;
 }
 
-input:user-invalid, textarea:user-invalid {
+/* input:user-invalid, textarea:user-invalid {
     border: 2px solid red;
-}
+} */
 
-input:user-invalid + span::before {
+/* input:user-invalid + span::before {
     content: "X";
     color: red;
 }
 textarea:user-invalid + span::before {
     content: "X";
     color: red;
-}
+} */
 
 .submit-button {
     width: 100%;
@@ -370,11 +370,13 @@ textarea:user-invalid + span::before {
     margin-top: 20px;
 }
 .error {
-    color: #ff0000;
+    color: red;
+    transition: opacity 1s ease-in-out;
+    opacity: 1;
 }
 
 .info {
-    color: #008000;
+    color: var(--primary-color);
 }
 
 /* -----Media Queries----- */
