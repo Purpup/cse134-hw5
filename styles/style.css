@@ -410,9 +410,6 @@ output.error {
 output.info {
     color: var(--primary-color);
 }
-#hidden_field, #hidden_field > * {
-    display: hidden;
-}
 
 /* .info {
     color: var(--primary-color);
