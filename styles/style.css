@@ -371,13 +371,19 @@ textarea:user-invalid + span::before {
 }
 .error {
     color: red;
-    transition: opacity 1s ease-in-out;
-    opacity: 1;
 }
-
-.info {
+output.error {
+    color: red;
+    transition: opacity 1s ease-in-out;
+    opacity: 0;
+}
+output.info {
     color: var(--primary-color);
 }
+
+/* .info {
+    color: var(--primary-color);
+} */
 
 /* -----Media Queries----- */
 

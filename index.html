@@ -167,14 +167,13 @@
                         <span class = "error" id = "emailError"></span>
                     </form-field>
 
-                    <!-- <label for = "phone">Phone: </label>
-                    <input type = "tel" id = "phone" name = "phone"> -->
-
                     <form-field>
                         <label for = "comments" class = "required">Comments:</label>
                         <textarea id = "comments" name = "comments" rows = "4" required
-                        title = "Be sure to use only typical characters"></textarea>
+                        maxlength = "500" title = "Be sure to use only typical characters"></textarea>
                         <span class = "error" id = "commentsError"></span>
+                        <br>
+                        <span class = "info" id = "infoOutput"></span>
                     </form-field>
 
                     <form-field>
@@ -182,8 +181,8 @@
                     </form-field>
                 </form>
                 <div class = "output">
+                    <!-- <output class="info" id = "infoOutput"></output> -->
                     <output class="error" id = "errorOutput"></output>
-                    <output class="info" id = "infoOutput"></output>
                 </div>
             </section>
             <script src = "scripts/script.js"></script>
