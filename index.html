@@ -189,6 +189,17 @@
                     <output class="error" id = "errorOutput"></output>
                 </div>
             </section>
+            <rating-widget>
+                <form action = "https://httpbin.org/post" method = "POST" target = "_blank">
+                    <label for = "rating">How satisified are you?</label>
+                    <input type = "hidden" name = "question" value = "How satisfied are you?">
+                    <input type = "hidden" name = "sentBy" value = "HTML">
+                    <input type = "number" id = "rating" name = "rating" min = "1" max = "5" value = "0" required>
+                    <span id = "stars"></span>
+                    <span id = "response"></span>
+                    <button type = "submit">Submit</button>
+                </form>
+            </rating-widget>
             <script src = "scripts/script.js"></script>
         </div>
     </main>    

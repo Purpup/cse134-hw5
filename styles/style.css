@@ -11,9 +11,11 @@
     --background-color: color-mix(in HSL, black 80%, white);
     --background-fallback: rgb(58, 58, 58);
     --font-color: white;
-    --light-background: white;
+    --light-background: rgb(208, 208, 208);
     --light-font-color: black;
     --contact-form-background: rgb(72, 72, 72);
+    --star-color: rgb(238, 154, 56);
+    --star-color-grey: rgb(140, 140, 140);
   }
 
 #warning {
@@ -414,6 +416,24 @@ output.info {
 /* .info {
     color: var(--primary-color);
 } */
+
+/* -----Rating Widget Style */
+rating-widget {
+    margin-top: 20px;
+    display: inline-block;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.star {
+    color: var(--star-color-grey);
+    transition: .15s ease-in-out;
+}
+
+.highlight {
+    color: var(--star-color);
+    transition: .15s ease-in-out;
+}
 
 /* -----Media Queries----- */
 

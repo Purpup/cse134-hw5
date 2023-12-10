@@ -189,4 +189,96 @@ document.addEventListener('DOMContentLoaded', main);
             }
         }
 
+        // rating widget stuff
+        let ratingWidget = document.querySelector('rating-widget');
+        let ratingForm = ratingWidget.querySelector('form');
+        let ratingLabel = ratingForm.querySelector('label');
+        let ratingNumber = ratingForm.querySelector('#rating');
+        ratingLabel.textContent = 'Rating Widget';
+        ratingNumber.style.display = 'none';
+        ratingForm.querySelector('button').style.display = 'none';
+
+        let minStars = Math.max(3, parseInt(ratingNumber.min));
+        let maxStars = Math.min(10, parseInt(ratingNumber.max));
+        let realMax = Math.max(minStars, maxStars);
+        // console.log(minStars, maxStars);
+        function generateStars() {
+            let stars = document.getElementById('stars');
+            stars.innerHTML = '';
+
+            for(let i = 1; i <= realMax; i++) {
+                let star = document.createElement('span');
+                star.textContent = '\u2605';
+                star.className = 'star';
+                star.id = `star_${i}`;
+                star.setAttribute('data-rating', i);
+                star.addEventListener('mouseover', highlightStars);
+                star.addEventListener('mouseleave', removeHighlight);
+                star.addEventListener('click', submitRating);
+                stars.appendChild(star);
+            }
+        }
+        function highlightStars(event) {
+            let hoveredStar = event.target;
+            let selectedRating = hoveredStar.getAttribute('data-rating');
+            let stars = document.querySelectorAll('#stars span');
+            let starId = parseInt(hoveredStar.id.split('_')[1], 10);
+            // console.log(stars);
+            stars.forEach((s, i) => {
+                s.classList.toggle('highlight', i < selectedRating);
+                // console.log(s);
+            });
+            document.getElementById('rating').value = starId;
+        }
+        function removeHighlight() {
+            let stars = document.querySelectorAll('#stars span');
+            stars.forEach((s, i) => {
+                s.classList.remove('highlight');
+            });
+            // document.getElementById('rating').value = '';
+        }
+        function submitRating(event) {
+            let clickedStar = event.target;
+            let starId = parseInt(clickedStar.id.split('_')[1], 10);
+            let ratingInput = document.getElementById('rating');
+            ratingInput.value = starId;
+
+            let headers = new Headers();
+            headers.append('X-Sent-By', 'JS');
+            let formData = new FormData(ratingForm);
+            formData.set('setBy', 'JS');
+
+            fetch(ratingForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: headers,
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                document.getElementById('stars').innerHTML = '';
+                let response = document.createElement('p');
+                if(starId / realMax >= .8) {
+                    response.textContent = `Thank you for the ${starId} star rating!`;
+                }
+                else {
+                    response.textContent = `Thank you for your feedback of ${starId} stars. We'll try to do better!`;
+                }
+                document.getElementById('response').appendChild(response);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+
+            // document.getElementById('stars').innerHTML = '';
+            // let response = document.createElement('p');
+            // if(starId / realMax >= .8) {
+            //     response.textContent = `Thank you for the ${starId} star rating!`;
+            // }
+            // else {
+            //     response.textContent = `Thank you for your feedback of ${starId} stars. We'll try to do better!`;
+            // }
+            // document.getElementById('response').appendChild(response);
+        }
+        generateStars();
     }
