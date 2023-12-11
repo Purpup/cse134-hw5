@@ -417,22 +417,37 @@ output.info {
     color: var(--primary-color);
 } */
 
-/* -----Rating Widget Style */
+/* -----Rating Widget Style----- */
 rating-widget {
     margin-top: 20px;
     display: inline-block;
     font-size: 2rem;
-    cursor: pointer;
 }
 
 .star {
     color: var(--star-color-grey);
     transition: .15s ease-in-out;
+    cursor: pointer;
 }
 
 .highlight {
     color: var(--star-color);
     transition: .15s ease-in-out;
+}
+
+/* ----Weather Widget Style---- */
+weather-widget {
+    font-size: 2rem;
+}
+weather-widget #title {
+    font-size: 2rem;
+}
+weather-widget .caption {
+    font-size: 1.5rem;
+}
+weather-widget #weather_icon {
+    width: 2.5%;
+    height: auto;
 }
 
 /* -----Media Queries----- */

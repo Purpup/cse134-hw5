@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', main);
 
         function addError(target, message) {
             formErrors.push({ field: target.previousElementSibling.getAttribute('for'), message: message });
-            console.log(JSON.stringify(formErrors));
+            console.error(JSON.stringify(formErrors.slice(-1)));
         }
 
         document.getElementById('contactForm').addEventListener('submit', formSubmission);
@@ -255,7 +255,6 @@ document.addEventListener('DOMContentLoaded', main);
             })
             .then(response => response.json())
             .then(data => {
-                console.log(data);
                 document.getElementById('stars').innerHTML = '';
                 let response = document.createElement('p');
                 if(starId / realMax >= .8) {
@@ -281,4 +280,66 @@ document.addEventListener('DOMContentLoaded', main);
             // document.getElementById('response').appendChild(response);
         }
         generateStars();
+
+        // weather widget stuff
+        const weatherWidget = document.querySelector('weather-widget');
+        // const latitude = '32.881130';
+        // const longitude = '-117.237572';
+        // const apiUrl = `https://api.weather.gov/points/${latitude},${longitude}`
+        // fetch(apiUrl)
+        // .then(response => response.json())
+        // .then(data => {
+        //     let forecastApi = data.properties.forecastHourly;
+        //     // console.log(forecastApi);
+        //     fetch(forecastApi)
+        //     .then(res => res.json())
+        //     .then(d => {
+        //         let weatherData = d.properties.periods[0];
+        //         console.log(weatherData);
+        //         console.log(weatherData.temperature);
+        //         const htmlContent = `
+        //             <p id = "title">Current Weather</p>
+        //             <p class = "caption">${weatherData.shortForecast} ${weatherData.temperature}</p>
+        //             `;
+        //         weatherWidget.innerHTML = htmlContent;
+        //     })
+        // })
+        // .catch(error => {
+        //     console.error('Error fetching weather data:', error);
+        //     weatherWidget.innerHTML = 'Current Weather Conditions Unavailable';
+        // });
+
+        async function fetchAPI() {
+            const latitude = '32.881130';
+            const longitude = '-117.237572';
+            const apiURL = `https://api.weather.gov/points/${latitude},${longitude}`;
+            await fetch(apiURL)
+            .then(response => response.json())
+            .then(data => {
+                let forecastAPI = data.properties.forecastHourly;
+                fetchWeather(forecastAPI);
+            })
+            .catch(error => {
+                console.error('Error fetching weather data:', error);
+                weatherWidget.innerHTML = 'Current Weather Conditions Unavailable';
+            })
+        }
+        async function fetchWeather(URL) {
+            await fetch(URL)
+            .then(response => response.json())
+            .then(data => {
+                let weatherData = data.properties.periods[0];
+                let iconURL = weatherData.icon.replace(",0", "");
+                const htmlContent = `
+                    <p id = "title">Current Weather</p>
+                    <p class = "caption"><img id = "weather_icon" src = ${iconURL}> ${weatherData.shortForecast} ${weatherData.temperature}\u00B0${weatherData.temperatureUnit}</p>
+                `;
+                weatherWidget.innerHTML = htmlContent;
+            })
+            .catch(error => {
+                console.error('Error fetching weather data:', error);
+                weatherWidget.innerHTML = 'Current Weather Conditions Unavailable';
+            })
+        }
+        fetchAPI();
     }
