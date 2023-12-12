@@ -198,6 +198,13 @@ document.addEventListener('DOMContentLoaded', main);
         ratingNumber.style.display = 'none';
         ratingForm.querySelector('button').style.display = 'none';
 
+        let stars = document.createElement('span');
+        stars.id = 'stars';
+        let response = document.createElement('span');
+        response.id = 'response';
+        ratingForm.appendChild(stars);
+        ratingForm.appendChild(response);
+
         let minStars = Math.max(3, parseInt(ratingNumber.min));
         let maxStars = Math.min(10, parseInt(ratingNumber.max));
         let realMax = Math.max(minStars, maxStars);
